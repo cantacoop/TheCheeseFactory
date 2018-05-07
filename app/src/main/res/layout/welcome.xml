@@ -31,53 +31,54 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:textColor="@android:color/white"
-                    android:layout_gravity="center"
                     style="@android:style/TextAppearance.Holo.Large"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Welcome to Clipzy" />
+                    android:layout_gravity="center"
+                    android:text="Welcome to Clipzy"
+                    android:textColor="@android:color/white" />
 
                 <TextView
-                    android:textColor="@android:color/white"
-                    android:gravity="center"
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/slogan" />
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/slogan"
+                    android:textColor="@android:color/white" />
 
             </LinearLayout>
 
         </FrameLayout>
 
         <Button
-            android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:background="@drawable/selector_btn_red"
             android:padding="16dp"
-            android:text="Get Started" />
+            android:text="Get Started"
+            android:textColor="@android:color/white" />
 
         <TextView
-            android:textColor="@android:color/white"
             android:id="@+id/tvSkip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
-            android:text="Skip" />
+            android:gravity="center_horizontal"
+            android:text="Skip"
+            style="@style/TextViewStyle.Green" />
 
         <TextView
-            android:textColor="@android:color/white"
             android:id="@+id/tvPolicy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
+            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="4dp"
-            android:text="By continuing you accept the Term of User and Privacy Policy" />
+            android:gravity="center_horizontal"
+            android:text="By continuing you accept the Term of User and Privacy Policy"
+            style="@style/TextViewStyle" />
 
     </LinearLayout>
 
