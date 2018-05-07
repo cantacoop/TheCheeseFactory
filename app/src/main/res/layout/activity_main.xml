@@ -48,6 +48,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:freezesText="true"
                     android:text="= 0" />
 
             </LinearLayout>
@@ -132,10 +133,12 @@
                 fancy:fb_textColor="#FFFFFF" />
 
             <com.cantacoop.helloworld.CustomView
+                android:id="@+id/view1"
                 android:layout_width="match_parent"
                 android:layout_height="160dp" />
 
             <com.cantacoop.helloworld.CustomView
+                android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 app:isBlue="true" />
