@@ -1,6 +1,7 @@
 package com.cantacoop.helloworld;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,20 +33,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (getResources().getBoolean(R.bool.portrait_only)) {
+            // Fix screen orientation to Portrait
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+
         setContentView(R.layout.activity_main);
 
-
+        initInstances();
 
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         int width = size.x; // Screen Width
         int height = size.y; // Screen Height
-        Toast.makeText(MainActivity.this,
-                "Width " + width + " Height " + height,
-                Toast.LENGTH_LONG)
-                .show();
+//        Toast.makeText(MainActivity.this,
+//                "Width " + width + " Height " + height,
+//                Toast.LENGTH_LONG)
+//                .show();
 
+
+    }
+
+    private void initInstances() {
         editText1 = findViewById(R.id.editText1);
         editText2 = findViewById(R.id.editText2);
         tvResult = findViewById(R.id.tvResult);
@@ -122,7 +133,8 @@ public class MainActivity extends AppCompatActivity {
                 c3.z = 20;
                 intent.putExtra("cParcelable", c3);
 
-                startActivity(intent);
+                startActivityForResult(intent, 12345);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -131,6 +143,23 @@ public class MainActivity extends AppCompatActivity {
 
         viewGroup1.setButtonText("Hello");
         viewGroup2.setButtonText("World");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Check if it is a result from SecondActivity
+        if (requestCode == 12345) {
+            if (resultCode == RESULT_OK) {
+                // Get data from data's extra
+                String result = data.getStringExtra("result");
+                Toast.makeText(MainActivity.this,
+                        result,
+                        Toast.LENGTH_LONG)
+                        .show();
+            }
+        }
     }
 
     @Override
